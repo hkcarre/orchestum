@@ -3,452 +3,468 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orchestum | When the System Breaks, So Does the Team</title>
-    <meta name="description" content="Orchestum — closing the gap between organisational intent and execution through structural alignment.">
+    <title>Orchestum · Structural Alignment for the AI Era</title>
+    <meta name="description" content="Orchestum — closing the gap between organisational intent and execution.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        /* Speaker-notes panel */
-        .notes-panel {
-            display: none;
-            position: fixed;
-            bottom: 0; left: 0; right: 0;
-            background: rgba(15,23,42,0.97);
-            color: #e2e8f0;
-            padding: 1.25rem 3rem;
-            font-size: 0.92rem;
-            line-height: 1.7;
-            border-top: 2px solid #c9a84c;
-            z-index: 200;
-            max-height: 28vh;
-            overflow-y: auto;
-        }
-        .notes-panel.visible { display: block; }
-        .notes-panel strong { color: #c9a84c; }
-        .notes-toggle-hint {
-            position: fixed;
-            bottom: 0.5rem; right: 1.5rem;
-            font-size: 0.72rem;
-            color: #94a3b8;
-            z-index: 201;
-            letter-spacing: 0.04em;
-        }
-        /* Slide bullet style: clean, minimal */
-        .bullet-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1rem; }
-        .bullet-list li { display: flex; align-items: flex-start; gap: 0.85rem; font-size: 1.05rem; color: var(--text-secondary); line-height: 1.5; }
-        .bullet-list li::before { content: "→"; color: var(--accent); font-weight: 700; flex-shrink: 0; margin-top: 0.05rem; }
-        .bullet-list li strong { color: var(--text-primary); }
-        /* Big-statement slide layout */
-        .statement-slide { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; height: 100%; gap: 2rem; }
-        .statement-slide .big-quote { font-family: var(--font-serif); font-size: clamp(1.6rem, 3.2vw, 2.4rem); color: var(--text-primary); max-width: 780px; line-height: 1.4; }
-        .statement-slide .label { font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
-        /* Compact two-col */
-        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-        /* Numbered insight row */
-        .insight-row { display: flex; gap: 2rem; align-items: stretch; }
-        .insight-num { font-family: var(--font-serif); font-size: 4rem; color: var(--accent); opacity: 0.25; line-height: 1; flex-shrink: 0; width: 3rem; }
-        .insight-body h4 { font-size: 1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.3rem; }
-        .insight-body p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin: 0; }
-        /* Lean card */
-        .lean-card { background: #fff; border: 1px solid var(--border); border-radius: 1rem; padding: 1.5rem 2rem; }
-        /* Formula display */
-        .formula { background: #f8fafc; border-radius: 1rem; border: 1px solid var(--border); padding: 1.5rem 2rem; text-align: center; }
-        .formula .eq { font-size: 1.15rem; font-weight: 600; color: var(--text-primary); margin: 0.5rem 0 0; }
-        .formula .eq span { color: var(--accent); }
-        /* CTA step cards */
-        .cta-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
-        .cta-step { background: #fff; border: 1px solid var(--border); border-radius: 1rem; padding: 1.75rem; position: relative; overflow: hidden; }
-        .cta-step::before { content: attr(data-n); position: absolute; top: -0.5rem; right: 1rem; font-family: var(--font-serif); font-size: 5rem; color: var(--accent); opacity: 0.08; line-height: 1; }
-        .cta-step h3 { font-size: 1rem; font-weight: 600; color: var(--accent); margin-bottom: 0.5rem; }
-        .cta-step p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin: 0; }
-        /* Tag pill */
-        .tag { display: inline-block; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; background: var(--accent); color: #fff; border-radius: 999px; padding: 0.2rem 0.75rem; font-weight: 600; }
-        .tag.grey { background: #e2e8f0; color: #64748b; }
-        /* Divider line */
-        .hdivider { border: none; border-top: 1px solid var(--border); margin: 1.25rem 0; }
-    </style>
 </head>
 <body>
-    <div class="presentation-container">
+<div class="presentation-container">
 
-        <!-- ─────────── SLIDE 1 · TITLE ─────────── -->
-        <section class="slide active" id="slide-1" data-notes="Welcome everyone. We're here to talk about a problem every organisation in this room knows — but hasn't been able to measure or fix at the root. Orchestum is our answer. Take a moment to let the title breathe before moving on.">
-            <div class="slide-content title-slide">
-                <div class="logo">ORCHESTUM</div>
-                <h1 class="main-title">When the System Breaks,<br>So Does the Team.</h1>
-                <h2 class="sub-title">Closing the gap between organisational intent and execution.</h2>
-                <div class="meta-data">
-                    <p>June 2026 &nbsp;·&nbsp; For C-Suite, Board &amp; Investors</p>
-                    <p class="confidential">STRICTLY CONFIDENTIAL</p>
-                </div>
-            </div>
-            <div class="hero-bg" style="background-image: url('cover.png');"></div>
-        </section>
+<!-- ══════════════════════════════════════════
+     SLIDE 01 · COVER
+══════════════════════════════════════════ -->
+<section class="slide active cover-slide" id="slide-1"
+    data-notes="Let the room settle. Open with a pause. Say: 'Every leader in this room has felt this — a strategy that made sense on paper, and execution that fell apart on the ground. Today we're going to show you exactly why that happens — and how to stop it.' Then advance.">
+    <div class="cover-bg"></div>
+    <div class="cover-content">
+        <div class="cover-logo">Orchestum</div>
+        <h1 class="cover-title">When the system breaks,<br>so does the team.</h1>
+        <p class="cover-sub">Closing the gap between organisational intent and execution — before it costs you the next transformation.</p>
+        <div class="cover-meta">
+            <span>June 2026</span>
+            <span>C-Suite · Board · Investors</span>
+            <span class="conf">Strictly Confidential</span>
+        </div>
+    </div>
+</section>
 
-        <!-- ─────────── SLIDE 2 · THE BURNING PLATFORM ─────────── -->
-        <section class="slide" id="slide-2" data-notes="Open with the numbers — they are devastating and sourced. The key pivot: burnout is not a personal flaw, it's a process failure. Carlos loved this framing. Make it visceral: 'Your wellness app isn't the answer. The process is broken.'">
-            <div class="slide-content">
-                <div class="label" style="margin-bottom:1rem;">The Burning Platform</div>
-                <h2 class="section-title" style="margin-bottom:2rem;">The numbers don't lie. The diagnosis does.</h2>
-                <div class="stats-container">
-                    <div class="stat-box">
-                        <div class="stat-number">70%</div>
-                        <h3>Transformations fail</h3>
-                        <p>Digital, AI, CX — all derailed not by strategy, but by structural misalignment underneath.</p>
-                        <span class="source">McKinsey &amp; Company</span>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">23%</div>
-                        <h3>Employee engagement, globally</h3>
-                        <p>Billions spent on yoga apps and coaching. Engagement hasn't moved in a decade.</p>
-                        <span class="source">Gallup, 2024</span>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">+20%</div>
-                        <h3>Revenue from aligned teams</h3>
-                        <p>CX cannot exceed EX. Aligned employees deliver 20% more sales and 10% higher customer ratings.</p>
-                        <span class="source">Harvard Business Review</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- ══════════════════════════════════════════
+     SLIDE 02 · THE BURNING PLATFORM
+══════════════════════════════════════════ -->
+<section class="slide" id="slide-2"
+    data-notes="These numbers are sourced and devastating. Don't rush them — let each stat breathe. On the 23% engagement stat, say: 'Billions spent on yoga apps and resilience coaching. Engagement has not moved in a decade. That is not a people problem. That is a system problem.' Pause.">
+    <div class="slide-header">
+        <div class="chapter">The Problem</div>
+        <h2 class="insight">Organisations are spending billions treating symptoms<br>while the root cause goes unmeasured — and unfixed.</h2>
+    </div>
 
-        <!-- ─────────── SLIDE 3 · THE ROOT CAUSE ─────────── -->
-        <section class="slide" id="slide-3" data-notes="This is the insight slide — our core intellectual property. 'Structural burnout is not tiredness. It's the daily cognitive tax of working inside a broken, contradictory system.' Pause here. Let it land. Then say: 'And you cannot fix it with a survey.'">
-            <div class="slide-content statement-slide">
-                <div class="label">Root Cause Analysis</div>
-                <p class="big-quote">"Burnout is not about working too hard.<br>It's about working hard <em>inside a broken system.</em>"</p>
-                <div class="lean-card" style="max-width:700px; width:100%;">
-                    <ul class="bullet-list">
-                        <li><strong>Tech, CX &amp; EX</strong> each run their own initiatives — solving the same problems from different angles, with no shared owner.</li>
-                        <li>Employees absorb the friction at the seams. Customers feel it on the outside.</li>
-                        <li>The data exists in exit interviews and old surveys. It's just never been connected.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- ─────────── SLIDE 4 · FOUR TYPES OF FRAGMENTATION ─────────── -->
-        <section class="slide" id="slide-4" data-notes="Walk through each type quickly — they build on each other. Data without context → unclear goals → treating symptoms → people losing their sense of purpose. The audience will self-identify. Ask: 'Which of these does your organisation suffer from?' Pause for effect.">
-            <div class="slide-content">
-                <div class="label" style="margin-bottom:1rem;">The Diagnosis</div>
-                <h2 class="section-title" style="margin-bottom:2rem;">Four types of fragmentation. All connected.</h2>
-                <div style="display:flex; flex-direction:column; gap:1.25rem;">
-                    <div class="insight-row">
-                        <div class="insight-num">01</div>
-                        <div class="insight-body"><h4>Fragmentation of Data</h4><p>Numbers without assumptions, context or meaning. Metrics that measure activity, not alignment.</p></div>
-                    </div>
-                    <div class="insight-row">
-                        <div class="insight-num">02</div>
-                        <div class="insight-body"><h4>Fragmentation of Outcomes</h4><p>No shared definition of success. Each team optimises for its own KPI, at the expense of the whole.</p></div>
-                    </div>
-                    <div class="insight-row">
-                        <div class="insight-num">03</div>
-                        <div class="insight-body"><h4>Fragmentation of Problems</h4><p>Everyone treats symptoms. No one owns the systemic diagnosis.</p></div>
-                    </div>
-                    <div class="insight-row">
-                        <div class="insight-num">04</div>
-                        <div class="insight-body"><h4>Fragmentation of Human Action &amp; Identity</h4><p>Roles multiply, mandates clash. People work hard but can't connect their effort to a coherent purpose.</p></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ─────────── SLIDE 5 · WHO LIVES THIS ─────────── -->
-        <section class="slide" id="slide-5" data-notes="Make it human. These are not abstract personas — they're people in this room or their direct reports. For the C-Suite row, pause and say: 'The dashboard is green. The revenue is not. That gap is what we map.'">
-            <div class="slide-content">
-                <div class="label" style="margin-bottom:1rem;">Who Feels It</div>
-                <h2 class="section-title" style="margin-bottom:1.5rem;">Three people. One broken system.</h2>
-                <table class="elegant-table">
-                    <thead>
-                        <tr>
-                            <th>Who</th>
-                            <th>What they live with</th>
-                            <th>What they deserve</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>The Knowledge Worker</strong><br><span style="font-size:0.8rem;color:#94a3b8;">Employee Experience</span></td>
-                            <td>Conflicting instructions, cognitive overload, invisible effort.</td>
-                            <td>Clear priorities. Friction surfaced. Work that makes sense.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>The Customer</strong><br><span style="font-size:0.8rem;color:#94a3b8;">Customer Experience</span></td>
-                            <td>Bounced between silos. Broken promises. The seams show.</td>
-                            <td>One company. One coherent experience.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>The C-Suite Leader</strong><br><span style="font-size:0.8rem;color:#94a3b8;">Board &amp; Executive</span></td>
-                            <td>Strategy deployed, execution sluggish. Green dashboards, missed targets.</td>
-                            <td>X-ray vision into the human layer of the business.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- ─────────── SLIDE 6 · THE MARKET GAP ─────────── -->
-        <section class="slide" id="slide-6" data-notes="Carlos specifically called out Microsoft Viva Insights — address it head-on. 'Viva tells you how many meetings you have. It cannot tell you why your people are burning out or why your last CRM rollout failed.' That's the white space we own.">
-            <div class="slide-content">
-                <div class="label" style="margin-bottom:1rem;">Competitive Landscape</div>
-                <h2 class="section-title" style="margin-bottom:1.5rem;">Everyone measures activity. Nobody maps alignment.</h2>
-                <div class="comp-grid">
-                    <div class="comp-item">
-                        <h3>BetterUp &amp; Coaching</h3>
-                        <p class="focus"><strong>Scope:</strong> The individual — mindset &amp; resilience.</p>
-                        <p class="gap"><strong>Blind spot:</strong> Leaves the broken process untouched.</p>
-                    </div>
-                    <div class="comp-item">
-                        <h3>Microsoft Viva Insights</h3>
-                        <p class="focus"><strong>Scope:</strong> Digital exhaust — meetings, emails, focus time.</p>
-                        <p class="gap"><strong>Blind spot:</strong> Tracks <em>activity</em>, not <em>alignment</em>. Ignores structural human friction.</p>
-                    </div>
-                    <div class="comp-item">
-                        <h3>Culture Amp &amp; Surveys</h3>
-                        <p class="focus"><strong>Scope:</strong> Sentiment on a 1–5 scale.</p>
-                        <p class="gap"><strong>Blind spot:</strong> Tells you people are unhappy. Not why, or what to fix.</p>
-                    </div>
-                    <div class="comp-item highlight">
-                        <h3><i data-lucide="star"></i> Orchestum</h3>
-                        <p class="focus"><strong>Scope:</strong> We map the <em>system</em>, not the symptom.</p>
-                        <p class="gap"><strong>Edge:</strong> Structural friction patterns, connected directly to financial outcomes.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ─────────── SLIDE 7 · THE COST ─────────── -->
-        <section class="slide" id="slide-7" data-notes="This is the board's language. Lead with: 'This isn't a people problem — it's a P&L problem.' Walk through each number. The formula at the bottom is the key — it's repeatable, auditable, specific. Carlos asked for exactly this.">
-            <div class="slide-content">
-                <div class="label" style="margin-bottom:1rem;">The Business Case</div>
-                <h2 class="section-title" style="margin-bottom:1.5rem;">Misalignment has a precise cost. We can calculate it.</h2>
-
-                <div class="formula" style="margin-bottom:1.5rem;">
-                    <div style="font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:#94a3b8;">The Orchestum Equation</div>
-                    <div class="eq">Cost of Misalignment = <span>(Capital in Failed Projects + Delay Costs)</span> + <span>(Turnover × $50k/head)</span></div>
-                </div>
-
-                <table class="elegant-table">
-                    <thead>
-                        <tr>
-                            <th>Leading Indicator <span class="tag grey" style="margin-left:0.5rem;">Orchestum detects early</span></th>
-                            <th>Lagging Indicator <span class="tag" style="margin-left:0.5rem;">Board sees too late</span></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Cross-functional narrative divergence</td>
-                            <td>Project delays &amp; capital burn</td>
-                        </tr>
-                        <tr>
-                            <td>Decision friction across teams</td>
-                            <td>Margin erosion, operational rework</td>
-                        </tr>
-                        <tr>
-                            <td>Distributed problems with no owner</td>
-                            <td>Top-talent attrition surge</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="callout" style="margin-top:1.25rem;">
-                    For a 5,000-person enterprise: a 20% reduction in turnover alone saves <strong>$7.5M/year in hard cash</strong>.
-                </div>
-            </div>
-        </section>
-
-        <!-- ─────────── SLIDE 8 · HOW ORCHESTUM WORKS ─────────── -->
-        <section class="slide" id="slide-8" data-notes="Demystify the methodology — three clear phases. Stress that Phase I begins with historical, anonymous data — no live surveillance, no GDPR exposure. The data already exists inside the organisation, collecting dust in old surveys and exit interviews.">
-            <div class="slide-content">
-                <div class="label" style="margin-bottom:1rem;">The Methodology</div>
-                <h2 class="section-title" style="margin-bottom:2rem;">Three phases. From diagnosis to structural change.</h2>
-                <div class="timeline-steps">
-                    <div class="step">
-                        <div class="step-num">I</div>
-                        <h3>Map the Macro</h3>
-                        <p>We analyse anonymous historical data — exit interviews, past surveys, project post-mortems — to identify macro friction patterns. <strong>No live tracking. 100% GDPR compliant.</strong></p>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">II</div>
-                        <h3>Understand the Dynamics</h3>
-                        <p>We surface micro-patterns — where misalignment clusters, who carries the friction burden, and how it flows across teams.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">III</div>
-                        <h3>Orchestrate the Fix</h3>
-                        <p>We translate patterns into <strong>concrete operational interventions</strong>. Structural fixes, not wellness workshops.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ─────────── SLIDE 9 · PRIVACY & TRUST ─────────── -->
-        <section class="slide" id="slide-9" data-notes="Address the elephant in the room before the board raises it. Carlos was explicit: employees will fake data if they feel watched. Our answer: we don't watch. We analyse history. The system breaks, not the person. Frame it as: we vindicate employees and indict the process.">
-            <div class="slide-content statement-slide">
-                <div class="label">Trust &amp; Privacy</div>
-                <p class="big-quote">We don't analyse people.<br>We analyse the <em>process failures</em> they were forced to absorb.</p>
-                <div class="lean-card" style="max-width:750px; width:100%;">
-                    <ul class="bullet-list">
-                        <li><strong>Anonymous by design:</strong> Historical, de-identified data only. No names, no IDs, no live access.</li>
-                        <li><strong>GDPR compliant out-of-the-box:</strong> We operate on data that already exists, already governed.</li>
-                        <li><strong>Anti-surveillance:</strong> Employees cannot game what they don't know is being analysed. No Hawthorne effect, no polite, fake surveys.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- ─────────── SLIDE 10 · THE PILOT ─────────── -->
-        <section class="slide" id="slide-10" data-notes="This is Carlos's proposal, brought to life. It's our strongest close — low risk, high credibility. We're not asking for permission to run a surveillance programme. We're offering to show them where their last big failure came from. For free. The board can resist a pitch. It cannot resist a retroactive post-mortem of its own failed investment.">
-            <div class="slide-content">
-                <div class="label" style="margin-bottom:1rem;">Call to Action</div>
-                <h2 class="section-title" style="margin-bottom:0.5rem;">We don't need a pilot programme. We need one file.</h2>
-                <p style="color:var(--text-secondary); font-size:1rem; margin-bottom:1.75rem;">Give us your historical, anonymous data from <strong>one failed project</strong>. We return a retroactive map of exactly where the human friction broke the plan — and three operational fixes your team can act on immediately. No commitment. No compromises.</p>
-                <div class="cta-steps">
-                    <div class="cta-step" data-n="1">
-                        <h3>Provide One Export</h3>
-                        <p>Anonymous exit interviews or survey text from one past project. No names, no IDs, no live access required.</p>
-                    </div>
-                    <div class="cta-step" data-n="2">
-                        <h3>We Run the Engine</h3>
-                        <p>Orchestum maps the structural friction that existed at the time. You see exactly where the human layer predicted the outcome.</p>
-                    </div>
-                    <div class="cta-step" data-n="3">
-                        <h3>3 Fixes. Zero Strings.</h3>
-                        <p>Three concrete operational fixes, completely independent of any purchase decision. You gain value before you commit.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ─────────── SLIDE 11 · RISKS ─────────── -->
-        <section class="slide" id="slide-11" data-notes="Pre-empt the hard questions. Carlos raised all three of these — address them as if you expected them. On the dehumanising risk: 'We don't tell you your employee is burnt out. We tell you your process is creating a burnout-generating condition.' On scaling: dead data means low engineering overhead per deployment.">
-            <div class="slide-content">
-                <div class="label" style="margin-bottom:1rem;">Risk Management</div>
-                <h2 class="section-title" style="margin-bottom:1.5rem;">We've heard the hard questions. Here are the answers.</h2>
-                <table class="elegant-table">
-                    <thead>
-                        <tr>
-                            <th>Risk</th>
-                            <th>Rating</th>
-                            <th>Our Mitigation</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Privacy &amp; GDPR</strong></td>
-                            <td><span class="badge high">High / High</span></td>
-                            <td>Anonymous dead data. No live tracking. GDPR compliant by design.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Perceived as dehumanising</strong></td>
-                            <td><span class="badge med">Med / High</span></td>
-                            <td>We indict the <em>process</em>, not the person. Every finding vindicates employee effort.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Engineering complexity</strong></td>
-                            <td><span class="badge med">Med / Med</span></td>
-                            <td>Dead data = low per-company engineering overhead. NLP works on existing text exports.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- ─────────── SLIDE 12 · AI ENGINE ─────────── -->
-        <section class="slide" id="slide-12" data-notes="Keep this brief — it's the 'how' not the 'why'. The board cares about outcomes, not architecture. One strong line: 'Our AI analyses what happened in the past to prevent it from happening again in the future.' Then move to the final slide.">
-            <div class="slide-content">
-                <div class="label" style="margin-bottom:1rem;">Technology</div>
-                <h2 class="section-title" style="margin-bottom:2rem;">The engine that turns history into foresight.</h2>
-                <div class="grid-3">
-                    <div class="ai-card">
-                        <i data-lucide="archive"></i>
-                        <h3>Dead Data Analysis</h3>
-                        <p>NLP on anonymous historical text: exit interviews, survey free-text, project post-mortems. No surveillance. No risk.</p>
-                    </div>
-                    <div class="ai-card">
-                        <i data-lucide="git-branch"></i>
-                        <h3>Friction Clustering</h3>
-                        <p>Unsupervised models surface recurring friction patterns across teams and timelines — invisible to traditional dashboards.</p>
-                    </div>
-                    <div class="ai-card">
-                        <i data-lucide="compass"></i>
-                        <h3>Structural Interventions</h3>
-                        <p>Output is always a prioritised list of process-level fixes — not a heatmap, not a score. Actionable from day one.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ─────────── SLIDE 13 · CLOSING STATEMENT ─────────── -->
-        <section class="slide" id="slide-13" data-notes="Slow down here. This is the emotional close. Let the silence work. Then end with: 'You already have the data. We just need the permission to show you what it means.' Hand out the one-pager and leave the room.">
-            <div class="slide-content statement-slide">
-                <div class="label">The Bottom Line</div>
-                <p class="big-quote">"You can't fix what you can't see.<br>The data already exists inside your organisation.<br><em>We make it speak.</em>"</p>
-                <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin-top:1rem;">
-                    <div class="lean-card" style="text-align:center; min-width:180px;">
-                        <div style="font-family:var(--font-serif); font-size:2rem; color:var(--accent);">$7.5M</div>
-                        <div style="font-size:0.85rem; color:var(--text-secondary);">Avg. annual saving in turnover costs</div>
-                    </div>
-                    <div class="lean-card" style="text-align:center; min-width:180px;">
-                        <div style="font-family:var(--font-serif); font-size:2rem; color:var(--accent);">1 file</div>
-                        <div style="font-size:0.85rem; color:var(--text-secondary);">Is all we need to start</div>
-                    </div>
-                    <div class="lean-card" style="text-align:center; min-width:180px;">
-                        <div style="font-family:var(--font-serif); font-size:2rem; color:var(--accent);">0 risk</div>
-                        <div style="font-size:0.85rem; color:var(--text-secondary);">No commitment, 3 free fixes delivered</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Navigation Controls -->
-        <div class="controls">
-            <button id="prevBtn"><i data-lucide="chevron-left"></i></button>
-            <div class="progress-container">
-                <div class="progress-bar" id="progressBar"></div>
-            </div>
-            <span class="slide-counter"><span id="currentSlide">1</span> / 13</span>
-            <button id="nextBtn"><i data-lucide="chevron-right"></i></button>
+    <div class="stat-row">
+        <div class="stat-cell">
+            <div class="stat-num">70%</div>
+            <div class="stat-label">Transformations fail</div>
+            <div class="stat-desc">Digital, AI, CX programmes — derailed not by strategy, but by the misaligned structure beneath it.</div>
+            <div class="stat-source">McKinsey &amp; Company</div>
+        </div>
+        <div class="stat-cell">
+            <div class="stat-num">23%</div>
+            <div class="stat-label">Employee engagement, globally</div>
+            <div class="stat-desc">A decade of wellness investment. Engagement hasn't moved. Burnout is structural — not personal.</div>
+            <div class="stat-source">Gallup, 2024</div>
+        </div>
+        <div class="stat-cell">
+            <div class="stat-num">+20%</div>
+            <div class="stat-label">Revenue from aligned teams</div>
+            <div class="stat-desc">CX cannot exceed EX. Aligned employees produce 20% more sales and 10% higher customer satisfaction.</div>
+            <div class="stat-source">Harvard Business Review</div>
         </div>
     </div>
 
-    <!-- Speaker Notes Panel -->
-    <div class="notes-panel" id="notesPanel">
-        <strong>🎤 Speaker Notes — Slide 1:</strong> <span id="notesText"></span>
+    <div class="so-what">
+        <p>The cost of misalignment is not a people problem — it is a measurable financial drain hiding in plain sight.</p>
     </div>
-    <div class="notes-toggle-hint">Press <kbd>N</kbd> to toggle speaker notes</div>
+</section>
 
-    <script src="script.js"></script>
-    <script>
-        lucide.createIcons();
+<!-- ══════════════════════════════════════════
+     SLIDE 03 · ROOT CAUSE
+══════════════════════════════════════════ -->
+<section class="slide" id="slide-3"
+    data-notes="This is the core intellectual insight. Slow down. Say: 'We tell employees to do more yoga. We give them coaching. But nobody has ever fixed the process that is generating the exhaustion.' Then: 'Burnout is not a person being weak. It is a person absorbing the daily cost of a broken, contradictory system.' Wait for it to land before advancing.">
+    <div class="slide-header">
+        <div class="chapter">Root Cause</div>
+        <h2 class="insight">Burnout is not a personal failure.<br>It is the daily cost of working inside <em>a broken process.</em></h2>
+    </div>
 
-        // Update notes panel when slide changes
-        function updateNotes(slideEl) {
-            const notes = slideEl.dataset.notes || '';
-            document.getElementById('notesText').textContent = notes;
-            // Update slide number in notes label
-            const idx = slideEl.id.replace('slide-', '');
-            document.querySelector('.notes-panel strong').textContent = `🎤 Speaker Notes — Slide ${idx}:`;
+    <div class="two-col" style="margin-bottom: 1.5rem;">
+        <div class="col-box accent-left-red">
+            <div class="col-label">What organisations do today</div>
+            <ul>
+                <li>Treat burnout as an individual wellness issue</li>
+                <li>Run Tech, CX &amp; EX as independent silos — each solving the same problems from different directions</li>
+                <li>Impose top-down strategy on misaligned structures and wonder why execution stalls</li>
+            </ul>
+        </div>
+        <div class="col-box accent-left">
+            <div class="col-label">What the evidence shows</div>
+            <ul>
+                <li>Employees absorb the friction at every cross-functional seam</li>
+                <li>Customers feel the internal dysfunction on the outside</li>
+                <li>The data to diagnose this already exists — in exit interviews, surveys, post-mortems. It has never been connected.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="so-what">
+        <p>You cannot fix the customer experience without first fixing the employee experience — and you cannot fix EX without diagnosing the structural cause.</p>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 04 · THE FOUR FRACTURES
+══════════════════════════════════════════ -->
+<section class="slide" id="slide-4"
+    data-notes="Walk through each row at a measured pace. After the fourth, ask the room: 'How many of these does your organisation currently suffer from?' Let the silence do the work. Every executive in the room will self-identify with at least two.">
+    <div class="slide-header">
+        <div class="chapter">The Diagnosis</div>
+        <h2 class="insight">Fragmentation is not one problem. It is four — and they compound each other.</h2>
+    </div>
+
+    <div class="evidence-list" style="margin-bottom: 1.5rem;">
+        <div class="ev-row">
+            <div class="ev-num">01</div>
+            <div class="ev-body">
+                <strong>Fragmentation of Data</strong>
+                <span>Numbers generated without context or assumptions. Metrics that measure activity, not alignment.</span>
+            </div>
+        </div>
+        <div class="ev-row">
+            <div class="ev-num">02</div>
+            <div class="ev-body">
+                <strong>Fragmentation of Outcomes</strong>
+                <span>No shared definition of success. Each team optimises its own KPI at the expense of the whole.</span>
+            </div>
+        </div>
+        <div class="ev-row">
+            <div class="ev-num">03</div>
+            <div class="ev-body">
+                <strong>Fragmentation of Problems</strong>
+                <span>Distributed problems with no owner. Everyone treats the symptom. Nobody diagnoses the system.</span>
+            </div>
+        </div>
+        <div class="ev-row">
+            <div class="ev-num">04</div>
+            <div class="ev-body">
+                <strong>Fragmentation of Human Action &amp; Identity</strong>
+                <span>Mandates multiply. Roles clash. People work hard — but can't connect their effort to a coherent purpose.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="so-what">
+        <p>Each fracture individually is manageable. All four operating simultaneously is what produces structural burnout — and failed transformation programmes.</p>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 05 · MARKET GAP
+══════════════════════════════════════════ -->
+<section class="slide" id="slide-5"
+    data-notes="Address Microsoft Viva head-on — Carlos flagged it directly. Say: 'You may have thought of Viva Insights. It tells you how many meetings your people attend. It cannot tell you why your last transformation failed.' Then point to the Orchestum row: 'We are the only tool that maps the structural misalignment — not the individual's activity.'">
+    <div class="slide-header">
+        <div class="chapter">Competitive Landscape</div>
+        <h2 class="insight">Every existing tool measures <em>activity.</em><br>None of them map structural alignment — until now.</h2>
+    </div>
+
+    <table class="comp-table" style="margin-bottom: 1.5rem;">
+        <thead>
+            <tr>
+                <th style="width:20%">Tool</th>
+                <th style="width:30%">What it measures</th>
+                <th>The blind spot</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>BetterUp / Coaching</strong></td>
+                <td>Individual mindset &amp; resilience</td>
+                <td>Leaves the broken process completely untouched</td>
+            </tr>
+            <tr>
+                <td><strong>Microsoft Viva Insights</strong></td>
+                <td>Digital exhaust — meetings, emails, focus time</td>
+                <td>Tracks <em>what</em> people do. Cannot explain <em>why</em> they burn out or why projects fail</td>
+            </tr>
+            <tr>
+                <td><strong>Culture Amp / Surveys</strong></td>
+                <td>Sentiment on a 1–5 scale</td>
+                <td>Confirms people are unhappy. Offers no structural diagnosis or fix</td>
+            </tr>
+            <tr class="orchestum-row">
+                <td><strong>Orchestum ★</strong></td>
+                <td>Structural friction patterns across the organisation</td>
+                <td><span class="dot dot-blue"></span> No blind spot. We connect human friction directly to financial outcomes</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="so-what">
+        <p>Orchestum occupies white space that no current tool can fill: the layer between human experience and financial performance.</p>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 06 · THE FINANCIAL CASE
+══════════════════════════════════════════ -->
+<section class="slide" id="slide-6"
+    data-notes="Carlos asked for a repeatable formula — here it is. Walk through the equation, then the table. Key line for the board: 'This table shows what Orchestum detects six to twelve months before it appears on your P&L. That is the value of early warning.' For the specific number: 'A 5,000-person company reducing turnover by just 20% recovers $7.5 million per year in hard cash — before accounting for failed transformation write-offs.'">
+    <div class="slide-header">
+        <div class="chapter">The Business Case</div>
+        <h2 class="insight">Misalignment has a precise, repeatable cost.<br>Orchestum detects it before it hits the P&amp;L.</h2>
+    </div>
+
+    <div class="formula-band">
+        <div class="formula-label">The Orchestum Equation</div>
+        <div class="formula-eq">
+            Cost of Misalignment &nbsp;=&nbsp;
+            <span class="hl">(Capital in failed projects + delay costs)</span>
+            &nbsp;+&nbsp;
+            <span class="hl">(Attrition × £50k/head replacement)</span>
+        </div>
+    </div>
+
+    <table class="indicator-table" style="margin-bottom: 1.5rem;">
+        <thead>
+            <tr>
+                <th class="col-lead">Leading Behavioural Indicator &nbsp;—&nbsp; Orchestum detects early</th>
+                <th class="col-lag">Lagging Financial Indicator &nbsp;—&nbsp; Board sees too late</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Cross-functional narrative divergence ("We don't know what IT is doing")</td>
+                <td>Project delays, missed launch windows, capital write-offs</td>
+            </tr>
+            <tr>
+                <td>Increasing decision friction across departments</td>
+                <td>Margin erosion from operational rework and duplication</td>
+            </tr>
+            <tr>
+                <td>Distributed problems with no owner, generating exhaustion</td>
+                <td>Surge in senior talent attrition; £50k+ per replacement</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="so-what">
+        <p>A 5,000-person enterprise reducing turnover by 20% saves <strong>£7.5M per year</strong> in hard cash — before accounting for rescued transformation budgets.</p>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 07 · HOW ORCHESTUM WORKS
+══════════════════════════════════════════ -->
+<section class="slide" id="slide-7"
+    data-notes="Keep this tight. Three phases, each one sentence. The critical point to stress: Phase I starts with dead data — no live surveillance, no GDPR exposure. Say: 'We don't need to install anything. We don't track anyone. We start with data your organisation already holds, already governed, already anonymised.' This eliminates the single biggest objection before it is raised.">
+    <div class="slide-header">
+        <div class="chapter">The Methodology</div>
+        <h2 class="insight">Three phases — from historical diagnosis<br>to structural, operational change.</h2>
+    </div>
+
+    <div class="method-row" style="margin-bottom: 1.5rem;">
+        <div class="method-card">
+            <div class="method-n">I</div>
+            <h3>Map the Macro</h3>
+            <p>We analyse anonymous historical data — exit interviews, past surveys, project post-mortems — to identify macro friction patterns across the organisation.</p>
+            <span class="method-tag">Dead data only · GDPR compliant</span>
+        </div>
+        <div class="method-card">
+            <div class="method-n">II</div>
+            <h3>Understand the Dynamics</h3>
+            <p>We surface micro-patterns: where misalignment clusters, which seams carry the friction burden, and how structural problems flow across teams.</p>
+            <span class="method-tag">NLP pattern clustering</span>
+        </div>
+        <div class="method-card">
+            <div class="method-n">III</div>
+            <h3>Orchestrate the Fix</h3>
+            <p>We translate structural findings into concrete operational interventions — prioritised by financial impact. Fixes, not reports.</p>
+            <span class="method-tag">3 actionable outputs</span>
+        </div>
+    </div>
+
+    <div class="so-what">
+        <p>The entire process begins with data your organisation already holds. No new data collection. No live monitoring. No exposure.</p>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 08 · TRUST & PRIVACY
+══════════════════════════════════════════ -->
+<section class="slide" id="slide-8"
+    data-notes="Carlos raised this explicitly — and he was right. Employees who know they're being monitored will produce polite, useless data. Our answer is the opposite of surveillance. Say: 'We are not watching your people. We are auditing your processes — using data that already exists, that is already anonymised, that your organisation already owns.' Then: 'Every finding we produce protects the employee. We show where the system failed them — not the other way around.'">
+    <div class="slide-header">
+        <div class="chapter">Trust &amp; Privacy</div>
+        <h2 class="insight">We don't analyse people.<br>We analyse the <em>process failures</em> your people were forced to absorb.</h2>
+    </div>
+
+    <div class="two-col" style="margin-bottom: 1.5rem;">
+        <div class="col-box accent-left">
+            <div class="col-label">Our Privacy Architecture</div>
+            <ul>
+                <li><strong>Anonymous by design</strong> — historical, de-identified data only. No names, no IDs, no live access required</li>
+                <li><strong>GDPR compliant out-of-the-box</strong> — we operate on data your organisation already governs</li>
+                <li><strong>No Hawthorne effect</strong> — employees cannot alter what they don't know is being analysed. No polite, fake surveys</li>
+            </ul>
+        </div>
+        <div class="col-box" style="background: #f0fdf4; border-color: #bbf7d0;">
+            <div class="col-label" style="color: #065f46;">The Human Promise</div>
+            <ul>
+                <li>Every finding <strong>vindicates the employee</strong> — we show the system failed them</li>
+                <li>We indict the <em>process</em>, not the person</li>
+                <li>Managers receive findings as <strong>a tool to remove blockers</strong> — not as a performance audit</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="so-what">
+        <p>This is the only approach that produces <em>honest</em> data — because the people being studied don't know they're being studied, and the data is already historical.</p>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 09 · THE ASK — THE PILOT
+══════════════════════════════════════════ -->
+<section class="slide" id="slide-9"
+    data-notes="This is Carlos's proposal, implemented in full. This is the close — and it's a powerful one. We are not asking for a budget. We are not asking for a commitment. We are offering to retroactively explain one of their failures — for free. Say: 'Give us one file. We will show you exactly where the human friction was that predicted your project's outcome. And we will give you three things you can fix on Monday morning, whether you work with us or not.' That is a hard proposition to refuse.">
+    <div class="slide-header">
+        <div class="chapter">Call to Action</div>
+        <h2 class="insight">We don't need a pilot programme.<br>We need one file — and we deliver proof in return.</h2>
+    </div>
+
+    <div class="pilot-steps">
+        <div class="pilot-step">
+            <div class="pilot-step-n">1</div>
+            <h3>Provide one anonymous export</h3>
+            <p>Historical exit-interview text or past annual survey free-text from <strong>one failed project</strong>. No names. No IDs. No live access.</p>
+        </div>
+        <div class="pilot-step">
+            <div class="pilot-step-n">2</div>
+            <h3>We run the retroactive engine</h3>
+            <p>Orchestum maps the structural friction that existed at the time — showing exactly where the human layer predicted the project's failure.</p>
+        </div>
+        <div class="pilot-step">
+            <div class="pilot-step-n">3</div>
+            <h3>3 fixes. Zero commitment.</h3>
+            <p>We present three concrete operational fixes your team can implement <strong>immediately</strong> — completely independent of any purchase decision.</p>
+        </div>
+    </div>
+
+    <div class="so-what">
+        <p>The board cannot resist a retroactive post-mortem of its own failed investment — delivered for free, with no strings attached.</p>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 10 · RISK PRE-EMPTION
+══════════════════════════════════════════ -->
+<section class="slide" id="slide-10"
+    data-notes="Pre-empt every hard question before it's asked. If you've done the previous slides well, this slide should feel like confirmation rather than defence. For the GDPR row: stress 'dead data' again. For dehumanising: 'We don't calculate that an employee is burned out. We identify that the process is generating a burnout-producing condition.' For engineering: 'Because we work on dead text exports, the per-company engineering overhead is low — NLP models don't need bespoke training on live data.'">
+    <div class="slide-header">
+        <div class="chapter">Risk Management</div>
+        <h2 class="insight">We have heard every hard question.<br>Here are the direct answers.</h2>
+    </div>
+
+    <table class="risk-table" style="margin-bottom: 1.5rem;">
+        <thead>
+            <tr>
+                <th style="width:24%">Risk</th>
+                <th style="width:16%">Rating</th>
+                <th>Mitigation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Privacy &amp; GDPR</strong></td>
+                <td><span class="badge-h">High / High</span></td>
+                <td>Anonymous dead data only. No live tracking. Fully GDPR compliant by design. Your existing data governance applies.</td>
+            </tr>
+            <tr>
+                <td><strong>Perceived as dehumanising</strong></td>
+                <td><span class="badge-m">Med / High</span></td>
+                <td>We identify process failures — not personal failures. Every output protects employees by naming the system as the cause.</td>
+            </tr>
+            <tr>
+                <td><strong>Engineering complexity at scale</strong></td>
+                <td><span class="badge-m">Med / Med</span></td>
+                <td>Dead text exports require no bespoke model training per company. NLP clustering works on existing, governed data exports from day one.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="so-what">
+        <p>The most common objection — surveillance and GDPR — is eliminated by design, not by policy. We start with data you already own and have already anonymised.</p>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 11 · CLOSE
+══════════════════════════════════════════ -->
+<section class="slide" id="slide-11"
+    data-notes="Slow everything down here. Let the headline breathe — it's the emotional close. Then say: 'You already have the data. It is sitting in old survey exports and exit interview files. We just need your permission to show you what it means.' Pause again. Then gesture to the three KPIs: 'One file. One conversation. The cost to start is zero.' Then stop talking. Leave room for questions.">
+    <div class="slide-header">
+        <div class="chapter">The Bottom Line</div>
+        <h2 class="insight" style="font-size:clamp(2rem,3.5vw,3rem); max-width:900px;">
+            "You cannot fix what you cannot see.<br>
+            The data already lives inside your organisation.<br>
+            <em>We make it speak.</em>"
+        </h2>
+    </div>
+
+    <div class="kpi-row" style="margin-bottom: 2rem;">
+        <div class="kpi-cell">
+            <div class="kpi-val">£7.5M</div>
+            <div class="kpi-desc">Average annual saving from a 20% reduction in top-talent attrition alone</div>
+        </div>
+        <div class="kpi-cell">
+            <div class="kpi-val">1 file</div>
+            <div class="kpi-desc">Is all we need to produce a retroactive friction map of your last failed project</div>
+        </div>
+        <div class="kpi-cell">
+            <div class="kpi-val">3 fixes</div>
+            <div class="kpi-desc">Concrete operational actions delivered at no cost and with no commitment required</div>
+        </div>
+    </div>
+
+    <div class="so-what">
+        <p>The only question is: how much longer can you afford to leave the structural cause unmeasured?</p>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════ -->
+<div class="controls">
+    <button id="prevBtn" aria-label="Previous slide"><i data-lucide="chevron-left"></i></button>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <span class="slide-counter"><span id="currentSlide">1</span> / 11</span>
+    <button id="nextBtn" aria-label="Next slide"><i data-lucide="chevron-right"></i></button>
+</div>
+
+</div><!-- /presentation-container -->
+
+<!-- Speaker Notes -->
+<div class="notes-panel" id="notesPanel">
+    <strong id="notesLabel">🎤 Speaker Notes — Slide 1:</strong>&nbsp;<span id="notesText"></span>
+</div>
+<div class="notes-hint">Press <kbd>N</kbd> for speaker notes &nbsp;·&nbsp; ← → or Space to navigate</div>
+
+<script src="script.js"></script>
+<script>
+    lucide.createIcons();
+
+    function updateNotes(slideEl) {
+        const idx = slideEl.id.replace('slide-', '');
+        document.getElementById('notesLabel').textContent = `🎤 Speaker Notes — Slide ${idx}:`;
+        document.getElementById('notesText').textContent = slideEl.dataset.notes || '';
+    }
+
+    const observer = new MutationObserver(() => {
+        const active = document.querySelector('.slide.active');
+        if (active) updateNotes(active);
+    });
+    observer.observe(document.querySelector('.presentation-container'), {
+        subtree: true, attributeFilter: ['class']
+    });
+
+    updateNotes(document.querySelector('.slide.active'));
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'n' || e.key === 'N') {
+            document.getElementById('notesPanel').classList.toggle('visible');
         }
-
-        // Hook into script.js slide changes via MutationObserver
-        const observer = new MutationObserver(() => {
-            const active = document.querySelector('.slide.active');
-            if (active) updateNotes(active);
-        });
-        observer.observe(document.querySelector('.presentation-container'), { subtree: true, attributeFilter: ['class'] });
-
-        // Initial notes
-        updateNotes(document.querySelector('.slide.active'));
-
-        // Toggle with N key
-        document.addEventListener('keydown', e => {
-            if (e.key === 'n' || e.key === 'N') {
-                document.getElementById('notesPanel').classList.toggle('visible');
-            }
-        });
-    </script>
+    });
+</script>
 </body>
 </html>
